@@ -1,0 +1,24 @@
+{
+  "name": "tga_quacker",
+  "version": "1.0.0",
+  "description": "Juego",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "bundle": "webpack --watch",
+    "start-dev": "\"concurrently \"npm run-script bundle\" \"npm run start\""
+  },
+  "author": "DeadSoftware",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^4.1.2",
+    "three": "^0.108.0"
+  },
+  "devDependencies": {
+    "express": "^4.17.1",
+    "webpack": "^4.41.0",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.1"
+  }
+}
