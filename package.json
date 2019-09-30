@@ -12,10 +12,10 @@
   "author": "DeadSoftware",
   "license": "ISC",
   "dependencies": {
-    "concurrently": "^4.1.2",
     "three": "^0.108.0"
   },
   "devDependencies": {
+    "concurrently": "^4.1.2",
     "express": "^4.17.1",
     "webpack": "^4.41.0",
     "webpack-cli": "^3.3.9",
