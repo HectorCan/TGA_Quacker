@@ -41,6 +41,7 @@ var xSpeed = 1;
 var ySpeed = 1;
 
 // movimiento wasd
+// TODO: Aplicar rotacion al heroe y movimiento tipo (South Park)
 document.addEventListener("keydown", onDocumentKeyDown, false);
 function onDocumentKeyDown(event) {
 	var keyCode = event.which;
