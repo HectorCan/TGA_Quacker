@@ -1,8 +1,15 @@
-var express = require('express');
-var app = express();
+const express = require('express');
+const webpack = require('webpack');
+const webpackDevMiddleware = require('webpack-dev-middleware');
 
-app.use(express.static('dist'));
+const app = express();
+const config = require('./webpack.config.js');
+const compiler = webpack(config);
 
-app.listen(8000, function () {
-    console.log('Running on PORT: 8000');
+app.use(webpackDevMiddleware(compiler, {
+    publicPath: config.output.publicPath,
+}));
+
+app.listen(3000, function () {
+    console.log('Running on PORT: 3000');
 });

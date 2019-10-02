@@ -1,5 +1,6 @@
 import { Scene, PerspectiveCamera, WebGLRenderer, DirectionalLight, Color } from 'three';
 import { ModelLoader } from './Utils/Utils';
+import './app.css';
 
 // Creamos la escena y la cámara
 const scene = new Scene();
@@ -17,16 +18,13 @@ backLight.position.set(100, 0, -100).normalize();
 scene.add(keyLight);
 scene.add(fillLight);
 scene.add(backLight);
-
 // render
 const renderer = new WebGLRenderer();
-console.log(window.innerWidth, window.innerHeight);
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
-
 // ModelLoader : Path : nombre del obj (carpeta voxel_models)
 let hero;
-ModelLoader('players/mage', 'm_person').then((obj) => {
+ModelLoader('k_person').then((obj) => {
 	hero = obj;
 	scene.add(hero);
 }).catch((err) => {
@@ -65,4 +63,3 @@ function animate() {
 }
 
 animate();
-
