@@ -1,5 +1,11 @@
-import { Scene, PerspectiveCamera, WebGLRenderer, DirectionalLight, Color } from 'three';
-import { ModelLoader } from './Utils/Utils';
+import {
+  Scene,
+  PerspectiveCamera,
+  WebGLRenderer,
+  DirectionalLight,
+  Color,
+} from 'three';
+import ModelLoader from './Utils/Utils';
 import './app.css';
 
 // Creamos la escena y la cámara
@@ -25,41 +31,40 @@ document.body.appendChild(renderer.domElement);
 // ModelLoader : Path : nombre del obj (carpeta voxel_models)
 let hero;
 ModelLoader('k_person').then((obj) => {
-	hero = obj;
-	scene.add(hero);
+  hero = obj;
+  scene.add(hero);
 }).catch((err) => {
-	console.log(err);
+  console.log(err);
 });
 
 camera.position.z = 10;
 
-
 // movement - please calibrate these values
-var xSpeed = 1;
-var ySpeed = 1;
+const xSpeed = 1;
+const ySpeed = 1;
 
 // movimiento wasd
 // TODO: Aplicar rotacion al heroe y movimiento tipo (South Park)
-document.addEventListener("keydown", onDocumentKeyDown, false);
 function onDocumentKeyDown(event) {
-	var keyCode = event.which;
-    if (keyCode == 87) {
-        hero.position.y += ySpeed;
-    } else if (keyCode == 83) {
-        hero.position.y -= ySpeed;
-    } else if (keyCode == 65) {
-        hero.position.x -= xSpeed;
-    } else if (keyCode == 68) {
-        hero.position.x += xSpeed;
-    } else if (keyCode == 32) {
-        hero.position.set(0, 0, 0);
-    }
-};
+  const keyCode = event.which;
+  if (keyCode === 87) {
+    hero.position.y += ySpeed;
+  } else if (keyCode === 83) {
+    hero.position.y -= ySpeed;
+  } else if (keyCode === 65) {
+    hero.position.x -= xSpeed;
+  } else if (keyCode === 68) {
+    hero.position.x += xSpeed;
+  } else if (keyCode === 32) {
+    hero.position.set(0, 0, 0);
+  }
+}
+
+document.addEventListener('keydown', onDocumentKeyDown, false);
 
 function animate() {
-	requestAnimationFrame( animate );
-
-	renderer.render( scene, camera );
+  requestAnimationFrame(animate);
+  renderer.render(scene, camera);
 }
 
 animate();

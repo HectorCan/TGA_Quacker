@@ -51,12 +51,7 @@ module.exports = {
                 test: /\.js$/,
                 include: path.resolve(__dirname, 'src'),
                 exclude: /(node_modules)/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/preset-env']
-                    }
-                }
+                loader: ['babel-loader', 'eslint-loader'],
             },
         ],
     },
