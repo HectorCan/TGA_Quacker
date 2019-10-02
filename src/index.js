@@ -10,7 +10,7 @@ import './app.css';
 
 // Creamos la escena y la cámara
 const scene = new Scene();
-const camera = new PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const camera = new PerspectiveCamera(90, window.innerWidth / window.innerHeight, 0.1, 1000);
 
 // Añadimos iluminación
 const keyLight = new DirectionalLight(new Color('hsl(30, 100%, 75%)'), 1.0);
@@ -32,13 +32,14 @@ document.body.appendChild(renderer.domElement);
 let hero;
 ModelLoader('k_person').then((obj) => {
   hero = obj;
+  hero.rotation.y = (170 * Math.PI) / 180;
+  hero.position.z += 4;
   scene.add(hero);
 }).catch((err) => {
-  console.log(err);  // eslint-disable-line no-console
+  console.log(err); // eslint-disable-line no-console
 });
 
 camera.position.z = 10;
-
 // movement - please calibrate these values
 const xSpeed = 1;
 const ySpeed = 1;
@@ -48,15 +49,20 @@ const ySpeed = 1;
 function onDocumentKeyDown(event) {
   const keyCode = event.which;
   if (keyCode === 87) {
-    hero.position.y += ySpeed;
+    hero.position.z += ySpeed;
+    camera.position.z += ySpeed;
   } else if (keyCode === 83) {
-    hero.position.y -= ySpeed;
+    hero.position.z -= ySpeed;
+    camera.position.z -= ySpeed;
   } else if (keyCode === 65) {
     hero.position.x -= xSpeed;
+    camera.position.x -= xSpeed;
   } else if (keyCode === 68) {
     hero.position.x += xSpeed;
+    camera.position.x += xSpeed;
   } else if (keyCode === 32) {
-    hero.position.set(0, 0, 0);
+    hero.position.set(0, 0, 4);
+    camera.position.set(0, 0, 10);
   }
 }
 

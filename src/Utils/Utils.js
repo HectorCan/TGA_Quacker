@@ -6,7 +6,7 @@ import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader';
  */
 
 const ModelLoader = (name) => {
-  const progress = console.log;  // eslint-disable-line no-console
+  const progress = console.log; // eslint-disable-line no-console
 
   return new Promise((resolve, reject) => {
     const mtlLoader = new MTLLoader();
