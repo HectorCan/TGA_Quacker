@@ -34,7 +34,7 @@ ModelLoader('k_person').then((obj) => {
   hero = obj;
   scene.add(hero);
 }).catch((err) => {
-  console.log(err);
+  console.log(err);  // eslint-disable-line no-console
 });
 
 camera.position.z = 10;
