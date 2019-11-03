@@ -17,7 +17,7 @@ module.exports = {
             title: 'The Great Adventure to Defeat Captain Quacker',
         }),
         new CopyPlugin([
-            {from: './src/voxel_models', to: 'models'},
+            {from: './src/Images', to: 'img'},
         ]),
     ],
     output: {

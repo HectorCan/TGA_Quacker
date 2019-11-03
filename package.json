@@ -13,6 +13,8 @@
   "author": "DeadSoftware",
   "license": "ISC",
   "dependencies": {
+    "pixi.js": "^5.1.5",
+    "pixi.js-keyboard": "^1.0.9",
     "three": "^0.108.0"
   },
   "devDependencies": {
